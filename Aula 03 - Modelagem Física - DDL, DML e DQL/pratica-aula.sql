@@ -149,14 +149,15 @@ ORDER BY
 	quantidade DESC 
 LIMIT 1;
 
-SELECT 
+SELECT #SELECIONO OS GRUPOS QUE IRÃO APARECER
 	nome_vendedor,
-    SUM(quantidade)
-FROM
+    SUM(quantidade)#SEMPRE QUE TIVER UMA FUNÇÃO E OUTRA COLUNA USAR GROUP BY
+FROM #NA TABELA
 	vendas
-GROUP BY
+GROUP BY #AGRUPA POR
 	nome_vendedor
-HAVING SUM(quantidade > 20);
+HAVING #CONDIÇÃO
+	SUM(quantidade > 20); #VOU UTILIZAR QUNADO TIVER UMA FUNÇÃO
 
 SELECT
 	nome_vendedor,
