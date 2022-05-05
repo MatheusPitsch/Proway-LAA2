@@ -14,7 +14,7 @@ quantidade INT NOT NULL,
 desconto INT,
 PRIMARY KEY (id_nf, id_item, cod_prod)
 );
-INSERT INTO vendas (ID_NF,ID_ITEM,COD_PROD,valor_unitario,QUANTIDADE,DESCONTO) VALUES
+INSERT INTO vendas (id_nf,id_item,cod_prod,valor_unitario,quantidade,desconto) VALUES
 (1,	1,	1,	25.00,	10,	5  ),
 (1,	2,	2,	13.00,	3, NULL),
 (1,	3,	3,	15.00,	2, NULL),
@@ -40,13 +40,13 @@ INSERT INTO vendas (ID_NF,ID_ITEM,COD_PROD,valor_unitario,QUANTIDADE,DESCONTO) V
 (7,	3,	3,	15.00,	10,	4),
 (7,	4,	5,	30.00,	10,	1);
 
-SELECT
+SELECT # A
 	id_nf,id_item,cod_prod,valor_unitario,desconto
 FROM
 	vendas
 WHERE
 	desconto IS NOT NULL;
-SELECT
+SELECT  # B
 	id_item,
     id_nf,
     cod_prod,
@@ -57,7 +57,7 @@ vendas
 WHERE
 	desconto IS NOT NULL;
 
-UPDATE
+UPDATE  # C
 	vendas
 SET	
 	desconto = 0
@@ -66,13 +66,96 @@ WHERE
 
 SELECT*FROM vendas;
 
-SELECT
+SELECT # D
 id_item,
 id_nf,
 cod_prod,
 valor_unitario,
 DESCONTO,
+QUANTIDADE,
 ROUND( valor_unitario - (valor_unitario * (desconto/ 100)),2) valor_vendido,
-ROUND(quantidade*valor_unitario)
+ROUND(quantidade*valor_unitario) valor_total
+FROM
+vendas;
+
+SELECT # E
+id_nf,
+ROUND(quantidade*valor_unitario) valor_total
 FROM
 vendas
+GROUP BY
+id_nf;
+
+SELECT # F
+id_nf,
+ROUND(quantidade*valor_unitario) valor_total
+FROM
+vendas
+GROUP BY
+id_nf
+ORDER BY
+valor_total DESC;
+
+SELECT #AQUI DEU NÃO DEU CERTO G
+cod_prod,
+QUANTIDADE
+FROM
+vendas
+GROUP BY 
+cod_prod
+ORDER BY
+QUANTIDADE;
+ 
+SELECT # H  - PORQUE NA DEMONSTRAÇÃO TINHA A FUNÇÃO SUM
+id_nf,
+COD_PROD,
+ROUND(quantidade*valor_unitario) valor_total
+FROM
+vendas
+GROUP BY
+COD_PROD,
+id_nf
+HAVING
+valor_total>10;
+
+SELECT # I
+id_nf,
+(QUANTIDADE * valor_unitario) valor_total
+FROM
+vendas
+GROUP BY 
+id_nf
+HAVING
+valor_total > 500
+ORDER BY
+valor_total;
+
+SELECT # J 
+cod_prod,
+avg(desconto) media
+FROM
+vendas
+GROUP BY
+cod_prod;
+
+SELECT # k - POR QUE NÃO APARECE O MENOR VALOR
+cod_prod,
+MIN(desconto),
+MAX(desconto),
+avg(desconto)media
+FROM
+vendas
+GROUP BY
+cod_prod;
+
+SELECT
+id_nf,
+SUM(id_item)quantidade_item
+FROM
+vendas
+GROUP BY 
+id_nf
+HAVING
+SUM(id_item > 3)
+
+
