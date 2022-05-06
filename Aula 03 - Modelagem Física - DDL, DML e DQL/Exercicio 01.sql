@@ -148,7 +148,7 @@ vendas
 GROUP BY
 cod_prod;
 
-SELECT
+SELECT # L
 id_nf,
 SUM(id_item)quantidade_item
 FROM
