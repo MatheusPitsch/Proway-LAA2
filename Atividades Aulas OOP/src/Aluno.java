@@ -61,7 +61,7 @@ public class Aluno {
         return media;
     }
 
-    public String getSituacao(double media){
-        if(media <= 4)
-    }
+    // public String getSituacao(double media){
+        // if(media <= 4)
+    // }
 }
