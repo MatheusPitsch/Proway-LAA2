@@ -1,3 +1,5 @@
+import javax.print.attribute.standard.Media;
+
 public class TesteAluno {
     
 
@@ -6,11 +8,13 @@ public class TesteAluno {
         
         Aluno aluno = new Aluno(111,"Matheus");
         
-        aluno.setn1(8);
+        aluno.setN1(8);
         aluno.setN2(9);
         aluno.setTrabalho(8.5);
 
-        
+        System.out.println(Aluno.getMedia(9,9,8.5));
+
+        System.out.println(Aluno.getSituacao(8.75));
     }
     
 

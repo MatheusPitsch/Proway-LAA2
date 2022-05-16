@@ -26,7 +26,7 @@ public class Aluno {
         return n1;
     }
 
-    public void setn1(double n1){
+    public void setN1(double n1){
         this.n1 = n1;
 
         if(n1 >= 11){
@@ -56,12 +56,24 @@ public class Aluno {
         }
     }
      
-    public double getMedia(double n1,double n2, double trabalho){
+    public static double getMedia(double n1,double n2, double trabalho){
         double media = (n1*3+n2*3+trabalho*2) / 8;
         return media;
     }
 
-    // public String getSituacao(double media){
-        // if(media <= 4)
-    // }
+    public static Double getSituacao(double media){
+        
+        if(media < 5){
+            return "Aluno Reprovado";
+        }
+        if (media < 7) {
+            return "Aluno em recuperação";
+        }
+        if (media <= 10) {
+            return "Aluno Aprovado";
+        }
+        
+
+    }
+
 }
