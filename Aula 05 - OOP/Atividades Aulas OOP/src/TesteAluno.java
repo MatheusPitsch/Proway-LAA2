@@ -12,9 +12,7 @@ public class TesteAluno {
         aluno.setN2(9);
         aluno.setTrabalho(8.5);
 
-        System.out.println(Aluno.getMedia(9,9,8.5));
-
-        System.out.println(Aluno.getSituacao(8.75));
+        System.out.println(aluno.getMedia(6, 9, 8.5));
     }
     
 

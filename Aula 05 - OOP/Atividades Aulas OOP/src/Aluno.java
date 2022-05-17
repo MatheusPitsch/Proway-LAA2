@@ -4,6 +4,7 @@ public class Aluno {
     private double n1;
     private double n2;
     private double trabalho;
+    public char[] getN1;
 
     public Aluno(int matricula, String nome){
         this.matricula = matricula;
@@ -56,21 +57,21 @@ public class Aluno {
         }
     }
      
-    public static double getMedia(double n1,double n2, double trabalho){
+    public double getMedia(double n1,double n2, double trabalho){
         double media = (n1*3+n2*3+trabalho*2) / 8;
         return media;
     }
 
-    public static Double getSituacao(double media){
+    public void getSituacao(double media){
         
         if(media < 5){
-            return "Aluno Reprovado";
+            System.out.println("Aluno Reprovado");
         }
         if (media < 7) {
-            return "Aluno em recuperação";
+            System.out.println( "Aluno em recuperação");
         }
         if (media <= 10) {
-            return "Aluno Aprovado";
+            System.out.println("Aluno Aprovado");
         }
         
 
