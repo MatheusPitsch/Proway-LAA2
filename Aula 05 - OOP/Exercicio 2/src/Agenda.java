@@ -54,7 +54,6 @@ public class Agenda {
                 agenda[i][1] = null;
                 System.out.println("Pessoa Removida com sucesso.");
             }
-
     }
 
     public void setBuscarPessoa(String nome){
@@ -66,5 +65,4 @@ public class Agenda {
             }
         }
     }
-    
 }

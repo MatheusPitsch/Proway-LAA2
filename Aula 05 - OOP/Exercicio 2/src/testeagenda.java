@@ -6,7 +6,7 @@ public class testeagenda {
 
         ag1.setArmanezaPessoa("João", "(46) 8 8888-8888");
         // ag1.setImprimirAgenda();
-        // ag1.setRemoverPessoa("João");
+        ag1.setRemoverPessoa("João");
         // ag1.setImprimirAgenda();
         ag1.setBuscarPessoa("João");
     }

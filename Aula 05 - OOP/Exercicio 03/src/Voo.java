@@ -2,7 +2,6 @@ package src;
 
 public class Voo {
 
-    private String cadeira;
     private int numeroVoo;
     private String data;
     private String[][] voo = new String[100][1];
@@ -20,14 +19,6 @@ public class Voo {
         this.data = data;
     }
 
-    public String getCadeira() {
-        return cadeira;
-    }
-
-    public void setCadeira(String cadeira) {
-        this.cadeira = cadeira;
-    }
-
     public int getNumeroVoo() {
         return numeroVoo;
     }
@@ -38,7 +29,7 @@ public class Voo {
 
     public void setCadeiraLivre() {
         for (int i = 0; i < voo.length; i++) {
-            if (voo[i][0] == null) {
+            if (this.voo[i][0] == null) {
                 System.out.printf("A proxima cadeira livre é %d. \n", i);
                 break;
             }
@@ -46,8 +37,8 @@ public class Voo {
     }
 
     public void setVerificaCadeira(int posicao) {
-        if (voo[posicao][0] == null) {
-            voo[posicao][0] = "Ocupado";
+        if (this.voo[posicao][0] == null) {
+            this.voo[posicao][0] = "Ocupado";
             System.out.printf("Cadeira %d ocupada com sucesso. \n", posicao);
         } else {
             System.out.println("posição se encontra ocupada");
@@ -57,13 +48,12 @@ public class Voo {
     
 
     public void setOcupaCadeira(int posicao) {
-        setVerificaCadeira(posicao);
-        
+        this.setVerificaCadeira(posicao);
     }
 
     public void setVagas() {
         int vazio = 0;
-        for (int i = 0; i < voo.length; i++) {
+        for (int i = 0; i < this.voo.length; i++) {
             if (voo[i][0] == null) {
                 vazio++;
             }

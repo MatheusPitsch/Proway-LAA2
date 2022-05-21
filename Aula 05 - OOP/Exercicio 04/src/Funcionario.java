@@ -16,7 +16,9 @@ public class Funcionario {
     }
 
     public void setSalario(double salario) {
-        this.salario = salario;
+        if (salario > 465) {
+            this.salario = salario;
+        }
     }
 
     public String getNome() {
@@ -24,14 +26,16 @@ public class Funcionario {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        
     }
 
     public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    private void setMatricula(int matricula) {
+        if (matricula > 0) {
+            this.matricula = matricula;
+        }
     }
 }

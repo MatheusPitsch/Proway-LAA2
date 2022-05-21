@@ -2,9 +2,9 @@ public class Aluno {
     
     private int matricula;
     private String nome;
-    private float n1;
-    private float n2;
-    private float trabalho;
+    private double n1;
+    private double n2;
+    private double trabalho;
 
     
 
@@ -17,10 +17,6 @@ public class Aluno {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
-
     public String getNome(){
         return nome;
     }
@@ -29,42 +25,47 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public float getN1(){
+    public double getN1(){
         return n1;
     }
 
-    public void setN1(float n1){
+    public void setN1(double n1){
         this.n1 = n1;
     }
 
-    public float getN2(){
+    public double getN2(){
         return n2;
     }
 
-    public void setN2(float n2){
+    public void setN2(double n2){
         this.n2 = n2;
     }
     
-    public float getTrabalho() {
+    public double getTrabalho() {
         return trabalho;
     }
 
-    public void setTrabalho(Float trabalho) {
+    public void setTrabalho(double trabalho) {
         this.trabalho = trabalho;
     }
 
-    public float getMedia(){
-        float media = (n1*3+n2*3+trabalho*2) / 8;
+    public double getMedia(){
+        double media = (this.n1*3+this.n2*3+this.trabalho*2) / 8;
         return media;
     }
 
-    public void getSituacao(float media){
+    public String getSituacao(){
+        
+        double media = this.getMedia();
+
         if (media <= 4.99) {
-            System.out.println("Reprovado");
+            return "Reprovado";
         } else if(media <= 6.99 ){
-            System.out.println("Recuperação");
+            return  "Recuperação";
         }else if(media <= 10){
-            System.out.println("Aprovado");
+            return"Aprovado";
+        }else{
+            return "Media invalida";
         }
     }
 }

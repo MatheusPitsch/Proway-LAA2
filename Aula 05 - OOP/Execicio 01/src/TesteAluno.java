@@ -12,8 +12,7 @@ public class TesteAluno {
         al1.setTrabalho((float) 5.5);
 
         System.out.println(al1.getMedia());
-        al1.getSituacao(al1.getMedia());
+        al1.getSituacao();
         
-
     }
 }
